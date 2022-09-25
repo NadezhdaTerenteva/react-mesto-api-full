@@ -1,0 +1,17 @@
+.header {
+  width: 100%;
+  max-width: 880px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 45px 0 0;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+@media screen and (max-width: 375px) {
+  .header {
+    margin: 28px 0 0;
+  }
+}

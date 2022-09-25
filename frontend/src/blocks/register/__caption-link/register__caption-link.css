@@ -1,0 +1,9 @@
+.register__caption-link {
+  text-decoration: none; 
+  color: #FFFFFF;
+}
+
+.register__caption-link:hover {
+  opacity: 0.6; 
+  cursor: pointer;
+}

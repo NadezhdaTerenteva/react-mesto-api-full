@@ -1,0 +1,9 @@
+.photo-grid__item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+}

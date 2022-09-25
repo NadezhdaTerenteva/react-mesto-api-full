@@ -1,0 +1,14 @@
+.register {
+  width: 100%;
+  max-width: 358px;
+  margin: 60px auto 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 430px) {
+  .register {
+      width: 100%;
+      max-width: 260px;
+      margin-top: 40px;
+  }
+}

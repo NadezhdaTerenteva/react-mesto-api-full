@@ -48,7 +48,7 @@ function Register({ onRegister }) {
           autoComplete="current-password"
           placeholder="Пароль"
           value={registerData.password || ""}
-          minLength="6" maxLength="6"
+          minLength="8" maxLength="20"
           required
           onChange={handleChange}
         ></input>

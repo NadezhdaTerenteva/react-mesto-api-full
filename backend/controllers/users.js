@@ -59,7 +59,8 @@ const login = (req, res, next) => {
 
           res.cookie('jwt', token, {
             httpOnly: true,
-            sameSite: true,
+            sameSite: 'None',
+            secure: true,
             maxAge: 3600000 * 24 * 7,
           });
           res.send({ data: user.toJSON() });
@@ -68,6 +69,17 @@ const login = (req, res, next) => {
         }
       }))
     .catch(next);
+};
+
+const logout = (req, res) => {
+  res.cookie('jwt', {
+    httpOnly: true,
+    sameSite: 'None',
+    secure: true,
+    maxAge: 0,
+  });
+
+  res.send();
 };
 
 const getUsers = (req, res, next) => {
@@ -147,6 +159,7 @@ const updateAvatar = (req, res, next) => {
 module.exports = {
   createUser,
   login,
+  logout,
   getUsers,
   getUserById,
   getUser,

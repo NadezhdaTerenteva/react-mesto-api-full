@@ -51,7 +51,8 @@ function App() {
       api
         .getUserInfo()
         .then((res) => {
-          setCurrentUser(res);
+          setCurrentUser(res)
+          setIsLoggedIn(true)
         })
         .catch((err) => {
           console.log(err);
@@ -59,13 +60,16 @@ function App() {
   }, [isLoggedIn]);
 
   // Получаем карточки
-
   useEffect(() => {
     if (isLoggedIn)
       api
         .getCards()
-        .then((cards) => {
-          setCards(cards);
+        .then((cardsList) => {
+          
+          if (cardsList) {
+            setCards(cardsList)
+          }
+          
         })
         .catch((err) => {
           console.log(err);
@@ -86,7 +90,7 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     if (!isLiked) {
@@ -115,7 +119,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    const isOwn = card.owner._id === currentUser._id;
+    const isOwn = card.owner === currentUser._id;
 
     if (isOwn) {
       api
@@ -193,15 +197,10 @@ function App() {
       });
   }
 
-  function tokenCheck() {
-    const jwt = localStorage.getItem("jwt");
-
-    if (!jwt) {
-      return;
-    }
-
+  useEffect(() => {
+    if (isLoggedIn) {
     auth
-      .getContent(jwt)
+      .getContent()
       .then((data) => {
         setUserEmail(data.data.email);
         setIsLoggedIn(true);
@@ -209,11 +208,8 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }
-
-  useEffect(() => {
-    tokenCheck();
-  }, []);
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -228,7 +224,6 @@ function App() {
       .then((res) => {
         setUserEmail(email);
         setIsLoggedIn(true);
-        localStorage.setItem("jwt", res.token);
       })
       .catch((err) => {
         handleInfoTooltipClick();
@@ -257,9 +252,12 @@ function App() {
   }
 
   function onLogout() {
-    setIsLoggedIn(false);
-    localStorage.removeItem("jwt");
-    history.push("/sign-in");
+     auth
+    .logout()
+    .then(()=> {
+      setIsLoggedIn(false);
+      history.push("/sign-in");
+    });
   }
 
   return (

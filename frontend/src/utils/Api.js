@@ -115,5 +115,6 @@ export default class Api {
 }
 
 export const api = new Api(
-  "http://localhost:4000",
+  //"http://localhost:4000",
+  "https://api.mesto.nadyaterenteva.nomoredomains.sbs"
 );

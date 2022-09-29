@@ -8,6 +8,6 @@
 
 IP-адрес 51.250.102.183
 
-Frontend https://.mesto.nadyaterenteva.nomoredomains.sbs
+Frontend https://mesto.nadyaterenteva.nomoredomains.sbs
 
 Backend https://api.mesto.nadyaterenteva.nomoredomains.sbs

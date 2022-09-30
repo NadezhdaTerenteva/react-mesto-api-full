@@ -28,6 +28,8 @@ const corsOptions = {
     'http://localhost:4000',
     'http://mesto.nadyaterenteva.nomoredomains.sbs',
     'http://api.mesto.nadyaterenteva.nomoredomains.sbs',
+    'https://mesto.nadyaterenteva.nomoredomains.sbs',
+    'https://api.mesto.nadyaterenteva.nomoredomains.sbs',
     'http://localhost:8080',
   ],
   credentials: true,

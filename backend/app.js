@@ -12,7 +12,7 @@ const { errorLogger } = require('./middlewares/error.log');
 const routes = require('./routes/index');
 
 // Слушаем 3000 порт
-const { PORT = 4000 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 
 // подключаемся к серверу mongo

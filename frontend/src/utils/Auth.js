@@ -24,7 +24,8 @@ export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: { "Content-type": "application/json",
-    "Access-Control-Allow-Origin": "*"},
+    "Access-Control-Allow-Origin": "*",
+  },
     credentials: 'include',
     body: JSON.stringify({
       password: password,
@@ -46,7 +47,7 @@ export const getContent = () => {
     method: "GET",
     headers: {
       "Content-type": "application/json",
-      //Authorization: `Bearer ${token}`,
+      "Access-Control-Allow-Origin": "*",
     },
     credentials: 'include',
   }).then((res) => checkResponse(res));

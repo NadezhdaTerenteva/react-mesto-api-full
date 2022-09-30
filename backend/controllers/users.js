@@ -59,8 +59,8 @@ const login = (req, res, next) => {
 
           res.cookie('jwt', token, {
             httpOnly: true,
-            sameSite: 'None',
-            secure: true,
+            sameSite: true,
+            // secure: true
             maxAge: 3600000 * 24 * 7,
           });
           res.send({ data: user.toJSON() });
@@ -74,7 +74,8 @@ const login = (req, res, next) => {
 const logout = (req, res) => {
   res.cookie('jwt', {
     httpOnly: true,
-    sameSite: 'None',
+    sameSite: true,
+    // secure: true'
     secure: true,
     maxAge: 0,
   });

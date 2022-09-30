@@ -6,7 +6,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.102.183
+IP-адрес 051.250.102.183
 
 Frontend https://mesto.nadyaterenteva.nomoredomains.sbs
 

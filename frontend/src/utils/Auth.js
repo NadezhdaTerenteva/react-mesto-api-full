@@ -23,7 +23,8 @@ export const register = ({ email, password }) => {
 export const authorize = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
-    headers: { "Content-type": "application/json" },
+    headers: { "Content-type": "application/json",
+    "Access-Control-Allow-Origin": "*"},
     credentials: 'include',
     body: JSON.stringify({
       password: password,

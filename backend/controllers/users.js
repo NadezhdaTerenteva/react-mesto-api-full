@@ -36,11 +36,11 @@ const createUser = async (req, res, next) => {
   } catch (err) {
     if (err.code === 11000) {
       next(new ConflictError('Пользователь с таким email уже существует'));
-      if (err.name === 'ValidationError') {
-        next(new BadRequestError('Некорректные данные при создании пользователя'));
-      } else {
-        next(err);
-      }
+    }
+    if (err.name === 'ValidationError') {
+      next(new BadRequestError('Некорректные данные при создании пользователя'));
+    } else {
+      next(err);
     }
   }
 };
@@ -127,7 +127,7 @@ const updateUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Такого пользователя не существует');
       }
-      res.status(200).send(user);
+      res.status(200).send({ data: user });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -146,7 +146,7 @@ const updateAvatar = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Такого пользователя не существует');
       }
-      res.status(200).send(user);
+      res.status(200).send({ data: user });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

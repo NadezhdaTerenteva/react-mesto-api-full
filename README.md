@@ -1,6 +1,9 @@
-# react-mesto-api-full
+# Project: react-mesto-api-full
+
+## Description
 
 Project `Mesto`, including frontend & backend parts of the app. 
+
 App has following options:
 - creating a new user;
 - user profile updating;
